@@ -1,0 +1,90 @@
+openapi: 3.0.3
+info:
+  title: HF Signal Monitoring API
+  version: 0.1.0
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: OK
+  /auth/login:
+    post:
+      summary: Login and get token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Token response
+  /signals:
+    get:
+      summary: List signals
+      parameters:
+        - in: query
+          name: station_id
+          schema:
+            type: string
+        - in: query
+          name: band
+          schema:
+            type: string
+        - in: query
+          name: since
+          schema:
+            type: string
+            format: date-time
+        - in: query
+          name: limit
+          schema:
+            type: integer
+        - in: query
+          name: offset
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Signals list
+  /alerts:
+    get:
+      summary: List alerts
+      parameters:
+        - in: query
+          name: station_id
+          schema:
+            type: string
+        - in: query
+          name: severity
+          schema:
+            type: string
+        - in: query
+          name: since
+          schema:
+            type: string
+            format: date-time
+        - in: query
+          name: limit
+          schema:
+            type: integer
+        - in: query
+          name: offset
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Alerts list
+  /stats/summary:
+    get:
+      summary: Summary stats
+      responses:
+        '200':
+          description: Summary list

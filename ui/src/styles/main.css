@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Source+Code+Pro:wght@400;600&display=swap');
+
+:root {
+  --bg: #f5f1e8;
+  --ink: #1f1d16;
+  --accent: #e35a1b;
+  --accent-2: #0a7f6f;
+  --card: #fff9f0;
+  --muted: #6b6257;
+  --warning: #d18f00;
+  --critical: #b42318;
+  --ok: #1f7a3f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top right, #ffe9d4 0%, transparent 55%),
+    radial-gradient(circle at 20% 20%, #dff2ef 0%, transparent 50%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+main {
+  padding: 32px;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.header span {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(31, 29, 22, 0.08);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 12px 30px rgba(31, 29, 22, 0.08);
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button.secondary {
+  background: var(--accent-2);
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(31, 29, 22, 0.2);
+  margin-top: 6px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 8px 6px;
+  border-bottom: 1px solid rgba(31, 29, 22, 0.1);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.warning {
+  background: rgba(209, 143, 0, 0.15);
+  color: var(--warning);
+}
+
+.badge.critical {
+  background: rgba(180, 35, 24, 0.15);
+  color: var(--critical);
+}
+
+.badge.ok {
+  background: rgba(31, 122, 63, 0.15);
+  color: var(--ok);
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  main {
+    padding: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

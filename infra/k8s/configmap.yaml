@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hf-config
+  namespace: hf-monitoring
+data:
+  KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+  KAFKA_SIGNAL_TOPIC: "hf.signals"
+  KAFKA_ALERT_TOPIC: "hf.alerts"
+  KAFKA_GROUP_ID: "processor-service"
+  GEN_RATE_EVENTS_PER_SEC: "5"
+  NUM_STATIONS: "5"
+  THRESHOLD_SNR_DB: "6.0"
+  THRESHOLD_POWER_DBM: "20.0"
+  BAND_MIN_HZ: "3000000"
+  BAND_MAX_HZ: "30000000"
+  DB_URL: "sqlite:///./hf.db"
+  API_PORT: "8000"
+  VITE_API_URL: "http://api:8000"
